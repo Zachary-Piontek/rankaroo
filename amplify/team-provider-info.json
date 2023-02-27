@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-rankaroo-staging-165350-authRole",
+      "UnauthRoleArn": "arn:aws:iam::402018977321:role/amplify-rankaroo-staging-165350-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::402018977321:role/amplify-rankaroo-staging-165350-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-rankaroo-staging-165350-deployment",
+      "UnauthRoleName": "amplify-rankaroo-staging-165350-unauthRole",
+      "StackName": "amplify-rankaroo-staging-165350",
+      "StackId": "arn:aws:cloudformation:us-west-1:402018977321:stack/amplify-rankaroo-staging-165350/4fa9cbd0-b6bf-11ed-bb1c-0624e2dcc015",
+      "AmplifyAppId": "dummjzec4exww"
+    },
+    "categories": {
+      "auth": {
+        "rankaroo": {}
+      }
+    }
+  }
+}
