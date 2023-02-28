@@ -18,7 +18,7 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function EditProfile(props) {
-  const { userProfile, overrides, ...rest } = props;
+  const { overrides, ...rest } = props;
   return (
     <Flex
       gap="16px"
@@ -149,7 +149,6 @@ export default function EditProfile(props) {
             borderRadius="160px"
             padding="0px 0px 0px 0px"
             objectFit="cover"
-            src={userProfile?.profile_image}
             {...getOverrideProps(overrides, "image")}
           ></Image>
           <Text

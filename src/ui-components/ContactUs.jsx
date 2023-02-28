@@ -218,11 +218,11 @@ export default function ContactUs(props) {
         {...getOverrideProps(overrides, "TextField29766938")}
       ></TextField>
       <TextField
+        placeholder="Placeholders"
         width="unset"
         shrink="0"
         alignSelf="stretch"
         label="Label"
-        placeholder="Placeholder"
         size="large"
         isDisabled={false}
         labelHidden={false}
