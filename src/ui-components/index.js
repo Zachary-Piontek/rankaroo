@@ -33,5 +33,3 @@ export { default as MarketingFooter } from "./MarketingFooter";
 export { default as ActionCard } from "./ActionCard";
 export { default as EditProfile } from "./EditProfile";
 export { default as studioTheme } from "./studioTheme";
-export { default as UserProfileCreateForm } from "./UserProfileCreateForm";
-export { default as UserProfileUpdateForm } from "./UserProfileUpdateForm";
