@@ -33,3 +33,5 @@ export { default as SocialPost } from "./SocialPost";
 export { default as MarketingFooter } from "./MarketingFooter";
 export { default as ActionCard } from "./ActionCard";
 export { default as studioTheme } from "./studioTheme";
+export { default as FilmsCreateForm } from "./FilmsCreateForm";
+export { default as FilmsUpdateForm } from "./FilmsUpdateForm";

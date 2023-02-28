@@ -6,34 +6,32 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
-type EagerUserProfile = {
+type EagerFilms = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<UserProfile, 'id'>;
+    identifier: ManagedIdentifier<Films, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly profile_image?: string | null;
-  readonly email?: string | null;
-  readonly username?: string | null;
+  readonly film_name?: string | null;
+  readonly rating?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-type LazyUserProfile = {
+type LazyFilms = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<UserProfile, 'id'>;
+    identifier: ManagedIdentifier<Films, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly profile_image?: string | null;
-  readonly email?: string | null;
-  readonly username?: string | null;
+  readonly film_name?: string | null;
+  readonly rating?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-export declare type UserProfile = LazyLoading extends LazyLoadingDisabled ? EagerUserProfile : LazyUserProfile
+export declare type Films = LazyLoading extends LazyLoadingDisabled ? EagerFilms : LazyFilms
 
-export declare const UserProfile: (new (init: ModelInit<UserProfile>) => UserProfile) & {
-  copyOf(source: UserProfile, mutator: (draft: MutableModel<UserProfile>) => MutableModel<UserProfile> | void): UserProfile;
+export declare const Films: (new (init: ModelInit<Films>) => Films) & {
+  copyOf(source: Films, mutator: (draft: MutableModel<Films>) => MutableModel<Films> | void): Films;
 }

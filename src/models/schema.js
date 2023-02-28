@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "UserProfile": {
-            "name": "UserProfile",
+        "Films": {
+            "name": "Films",
             "fields": {
                 "id": {
                     "name": "id",
@@ -10,22 +10,15 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "profile_image": {
-                    "name": "profile_image",
+                "film_name": {
+                    "name": "film_name",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "email": {
-                    "name": "email",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "username": {
-                    "name": "username",
+                "rating": {
+                    "name": "rating",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -49,7 +42,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "UserProfiles",
+            "pluralName": "Films",
             "attributes": [
                 {
                     "type": "model",
@@ -67,18 +60,6 @@ export const schema = {
                                     "delete",
                                     "read"
                                 ]
-                            },
-                            {
-                                "provider": "userPools",
-                                "ownerField": "owner",
-                                "allow": "owner",
-                                "identityClaim": "cognito:username",
-                                "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
-                                    "read"
-                                ]
                             }
                         ]
                     }
@@ -89,5 +70,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.5",
-    "version": "38bdfe08498df7dfb8559f01f0619857"
+    "version": "685302f38ff9704ab97c2b827486188e"
 };
