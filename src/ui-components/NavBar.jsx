@@ -21,15 +21,15 @@ export default function NavBar(props) {
   const authAttributes = useAuth().user?.attributes ?? {};
   return (
     <Flex
-      gap="76px"
+      gap="30px"
       direction="row"
-      width="1488px"
+      width="1122px"
       height="138px"
-      justifyContent="flex-start"
+      justifyContent="space-between"
       alignItems="center"
       position="relative"
-      padding="24px 22px 24px 32px"
-      backgroundColor="rgba(195,195,195,1)"
+      padding="24px 45px 24px 32px"
+      backgroundColor="rgba(135,135,135,1)"
       {...getOverrideProps(overrides, "NavBar")}
       {...rest}
     >
@@ -43,7 +43,7 @@ export default function NavBar(props) {
         shrink="0"
         alignSelf="stretch"
         position="relative"
-        boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+        boxShadow="0px 1px 1px rgba(1, 0, 0, 1)"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Logo")}
       >
@@ -73,9 +73,9 @@ export default function NavBar(props) {
       <Flex
         gap="40px"
         direction="row"
-        width="347px"
-        height="unset"
-        justifyContent="flex-start"
+        width="282px"
+        height="82px"
+        justifyContent="space-between"
         alignItems="center"
         shrink="0"
         position="relative"
@@ -152,7 +152,7 @@ export default function NavBar(props) {
       <Flex
         gap="32px"
         direction="row"
-        width="636px"
+        width="474px"
         height="unset"
         justifyContent="flex-end"
         alignItems="center"

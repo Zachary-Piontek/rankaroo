@@ -7,8 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps, useAuth } from "@aws-amplify/ui-react/internal";
-import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
-import MyIcon from "./MyIcon";
+import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function ProfileCard(props) {
   const { overrides, ...rest } = props;
   const authAttributes = useAuth().user?.attributes ?? {};
@@ -16,13 +15,14 @@ export default function ProfileCard(props) {
     <Flex
       gap="24px"
       direction="column"
-      width="320px"
+      width="unset"
       height="unset"
-      justifyContent="flex-start"
+      justifyContent="center"
       alignItems="center"
       position="relative"
+      borderRadius="25px"
       padding="24px 24px 24px 24px"
-      backgroundColor="rgba(255,255,255,1)"
+      backgroundColor="rgba(245,217,188,1)"
       {...getOverrideProps(overrides, "ProfileCard")}
       {...rest}
     >
@@ -97,64 +97,6 @@ export default function ProfileCard(props) {
           {...getOverrideProps(overrides, "Design Engineer at Cloth Studios")}
         ></Text>
       </Flex>
-      <Flex
-        gap="16px"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        shrink="0"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Followers")}
-      >
-        <MyIcon
-          width="24px"
-          height="24px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          overflow="hidden"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          type="group"
-          {...getOverrideProps(overrides, "MyIcon")}
-        ></MyIcon>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(48,64,80,1)"
-          lineHeight="24px"
-          textAlign="center"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.01px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="99 Followers"
-          {...getOverrideProps(overrides, "99 Followers")}
-        ></Text>
-      </Flex>
-      <Button
-        shrink="0"
-        alignSelf="stretch"
-        size="large"
-        isDisabled={false}
-        variation="primary"
-        children="View Profile"
-        {...getOverrideProps(overrides, "Button")}
-      ></Button>
     </Flex>
   );
 }
