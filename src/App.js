@@ -17,7 +17,6 @@ async function getMovies() {
 function App({ user, signOut }) {
   const [profileCard, showProfileCard] = useState(false);
   const [movies, setMovies] = useState([]);
-  const [searchMovies, setSearchMovies] = useState([]);
 
   useEffect(() => {
     async function fetchMovies() {
@@ -44,13 +43,7 @@ function App({ user, signOut }) {
   };
 
   function renderMovies() {
-    const searchRegex = new RegExp(searchMovies, 'i');
-
-    const filteredMovies = movies.filter((movie) => {
-      return searchRegex.test(movie.title);
-    });
-
-    return filteredMovies.map((movie) => {
+    return movies.map((movie) => {
       return (
         <div key={movie.id} className="movie">
           <p>           </p>
@@ -69,11 +62,6 @@ function App({ user, signOut }) {
     <div className="App">
       <NavBar width={'100%'} overrides={navBarOverrides} />
       <ProfileCard display={profileCard ? 'flex' : 'none'} />
-      <input
-        type="text"
-        placeholder="Search movies"
-        onChange={(e) => setSearchMovies(e.target.value)}
-      />
       <div className="movies">{renderMovies()}</div>
     </div>
   );
