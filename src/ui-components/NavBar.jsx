@@ -13,14 +13,15 @@ export default function NavBar(props) {
   const authAttributes = useAuth().user?.attributes ?? {};
   return (
     <Flex
-      gap="30px"
+      gap="120px"
       direction="row"
-      width="1122px"
-      height="138px"
+      width="1272px"
+      height="unset"
       justifyContent="space-between"
       alignItems="center"
+      overflow="hidden"
       position="relative"
-      padding="24px 45px 24px 32px"
+      padding="22px 31px 22px 31px"
       backgroundColor="rgba(135,135,135,1)"
       {...getOverrideProps(overrides, "NavBar")}
       {...rest}
@@ -29,14 +30,12 @@ export default function NavBar(props) {
         gap="5px"
         direction="row"
         width="unset"
-        height="unset"
+        height="90px"
         justifyContent="center"
         alignItems="center"
         overflow="hidden"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
-        border="1px solid red"
         boxShadow="0px 0px 0px rgba(0, 0.13333334028720856, 0.4000000059604645, 1)"
         borderRadius="25px"
         padding="0px 0px 0px 0px"
@@ -69,13 +68,13 @@ export default function NavBar(props) {
       <Flex
         gap="40px"
         direction="row"
-        width="282px"
-        height="82px"
+        width="286px"
+        height="78px"
         justifyContent="space-between"
         alignItems="center"
         shrink="0"
         position="relative"
-        padding="0px 25px 0px 25px"
+        padding="5px 25px 5px 25px"
         {...getOverrideProps(overrides, "Frame 32129767076")}
       >
         <Text
@@ -148,7 +147,7 @@ export default function NavBar(props) {
       <Flex
         gap="32px"
         direction="row"
-        width="154px"
+        width="292px"
         height="unset"
         justifyContent="flex-end"
         alignItems="center"
@@ -245,10 +244,11 @@ export default function NavBar(props) {
         </Flex>
       </Flex>
       <Button
-        width="107px"
+        width="111px"
         height="44px"
         padding="7px 7px 7px 7px"
         shrink="0"
+        backgroundColor="rgba(0,0,0,1)"
         size="large"
         isDisabled={false}
         variation="primary"

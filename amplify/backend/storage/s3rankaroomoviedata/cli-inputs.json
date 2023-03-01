@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3rankaroomoviedata",
+  "bucketName": "rankaroo-movie-data",
+  "policyUUID": "7546bbb4",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "READ"
+  ]
+}
