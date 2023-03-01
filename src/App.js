@@ -58,6 +58,8 @@ function App({ user, signOut }) {
           <p>Movie rank: {movie.rank}</p>
           <img src={movie.image} alt={movie.title} />
           <p>⭐️ {movie.imDbRating}</p>
+          <p>📅 {movie.year}</p>
+          <p>🎭 {movie.crew}</p>
         </div>
       );
     });
