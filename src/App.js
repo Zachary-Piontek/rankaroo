@@ -4,10 +4,9 @@ import { NavBar } from './ui-components';
 import { ProfileCard } from './ui-components';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import awsmobile from './aws-exports';
 
-const api = awsmobile.IMDB_API_KEY;
-const moviesUrl = `https://imdb-api.com/en/API/Top250Movies/${api}`;
+const api = 'k_sgl77fv7';
+const moviesUrl = 'https://imdb-api.com/en/API/Top250Movies/' + api;
 
 async function getMovies() {
   const response = await axios.get(moviesUrl);
@@ -17,6 +16,7 @@ async function getMovies() {
 function App({ user, signOut }) {
   const [profileCard, showProfileCard] = useState(false);
   const [movies, setMovies] = useState([]);
+  const [searchMovies, setSearchMovies] = useState([]);
 
   useEffect(() => {
     async function fetchMovies() {
@@ -43,7 +43,13 @@ function App({ user, signOut }) {
   };
 
   function renderMovies() {
-    return movies.map((movie) => {
+    const searchRegex = new RegExp(searchMovies, 'i');
+
+    const filteredMovies = movies.filter((movie) => {
+      return searchRegex.test(movie.title);
+    });
+
+    return filteredMovies.map((movie) => {
       return (
         <div key={movie.id} className="movie">
           <p>           </p>
@@ -62,9 +68,19 @@ function App({ user, signOut }) {
     <div className="App">
       <NavBar width={'100%'} overrides={navBarOverrides} />
       <ProfileCard display={profileCard ? 'flex' : 'none'} />
+      <div className="search">
+      <input
+        type="text"
+        placeholder="Search movies"
+        value={searchMovies}
+        onChange={(e) => setSearchMovies(e.target.value)}
+      />
+      <button onClick={() => setSearchMovies('')}>Clear</button>
+      </div>
       <div className="movies">{renderMovies()}</div>
     </div>
   );
 }
 
 export default withAuthenticator(App);
+
