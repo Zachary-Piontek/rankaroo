@@ -7,15 +7,7 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps, useAuth } from "@aws-amplify/ui-react/internal";
-import {
-  Button,
-  Flex,
-  Icon,
-  Image,
-  SearchField,
-  Text,
-  View,
-} from "@aws-amplify/ui-react";
+import { Button, Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
   const { overrides, ...rest } = props;
   const authAttributes = useAuth().user?.attributes ?? {};
@@ -34,17 +26,20 @@ export default function NavBar(props) {
       {...rest}
     >
       <Flex
-        gap="2px"
+        gap="5px"
         direction="row"
         width="unset"
         height="unset"
         justifyContent="center"
         alignItems="center"
+        overflow="hidden"
         shrink="0"
         alignSelf="stretch"
         position="relative"
-        boxShadow="0px 1px 1px rgba(1, 0, 0, 1)"
+        boxShadow="0px 0px 0px rgba(0, 0.13333334028720856, 0.4000000059604645, 1)"
+        borderRadius="25px"
         padding="0px 0px 0px 0px"
+        backgroundColor="rgba(0,0,0,1)"
         {...getOverrideProps(overrides, "Logo")}
       >
         <Text
@@ -54,11 +49,11 @@ export default function NavBar(props) {
           color="rgba(0,95,207,1)"
           textTransform="capitalize"
           lineHeight="24.204544067382812px"
-          textAlign="left"
+          textAlign="center"
           display="block"
           direction="column"
           justifyContent="unset"
-          width="unset"
+          width="109px"
           height="unset"
           gap="unset"
           alignItems="unset"
@@ -152,7 +147,7 @@ export default function NavBar(props) {
       <Flex
         gap="32px"
         direction="row"
-        width="474px"
+        width="154px"
         height="unset"
         justifyContent="flex-end"
         alignItems="center"
@@ -161,15 +156,6 @@ export default function NavBar(props) {
         padding="0px 25px 0px 0px"
         {...getOverrideProps(overrides, "Frame 32129767081")}
       >
-        <SearchField
-          shrink="0"
-          placeholder="Placeholder"
-          size="default"
-          isDisabled={false}
-          labelHidden={true}
-          variation="default"
-          {...getOverrideProps(overrides, "SearchField")}
-        ></SearchField>
         <View
           width="24px"
           height="24px"
