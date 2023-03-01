@@ -58,3 +58,9 @@
   border-radius: 1rem;
   border: 1px solid #000000;
 }
+
+.sort-buttons button {
+  border: 1px solid #45559f;
+  background: #0e0e0e;
+  color: #fff;
+}

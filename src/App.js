@@ -17,6 +17,7 @@ function App({ user, signOut }) {
   const [profileCard, showProfileCard] = useState(false);
   const [movies, setMovies] = useState([]);
   const [searchMovies, setSearchMovies] = useState([]);
+  const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
     async function fetchMovies() {
@@ -32,15 +33,47 @@ function App({ user, signOut }) {
         signOut();
       },
     },
-      image: {
-        src: user?.attributes?.profile
+    image: {
+      src: user?.attributes?.profile,
     },
     Profile: {
       onClick: () => {
         showProfileCard(!profileCard);
       },
     },
+    Rankaroo: {
+        color: 'white',
+        border: '5px solid red',
+        borderRadius: '5px',
+        padding: '5px',
+        backgroundColor: 'blue',
+    },
   };
+
+  function sortMovies(sortBy) {
+    const sortedMovies = [...movies].sort((a, b) => {
+      if (sortBy === 'year') {
+        return sortOrder === 'asc' ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy];
+      } else if (sortBy === 'rank') {
+        return sortOrder === 'asc' ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy];
+      }
+      else {
+        return sortOrder === 'asc' ? a[sortBy].localeCompare(b[sortBy]) : b[sortBy].localeCompare(a[sortBy]);
+      }
+    });
+    setMovies(sortedMovies);
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+  }
+  
+  function renderSortButtons() {
+    return (
+      <div className="sort-buttons">
+        <button onClick={() => sortMovies('year')}>Sort by Year</button>
+        <button onClick={() => sortMovies('title')}>Sort by Title</button>
+        <button onClick={() => sortMovies('rank')}>Sort by Rank</button>
+      </div>
+    );
+  }
 
   function renderMovies() {
     const searchRegex = new RegExp(searchMovies, 'i');
@@ -52,7 +85,7 @@ function App({ user, signOut }) {
     return filteredMovies.map((movie) => {
       return (
         <div key={movie.id} className="movie">
-          <p>           </p>
+          <p> </p>
           <h2>{movie.title}</h2>
           <p>Movie rank: {movie.rank}</p>
           <img src={movie.image} alt={movie.title} />
@@ -76,8 +109,9 @@ function App({ user, signOut }) {
         onChange={(e) => setSearchMovies(e.target.value)}
       />
       <button onClick={() => setSearchMovies('')}>Clear</button>
-      </div>
-      <div className="movies">{renderMovies()}</div>
+    </div>
+    {renderSortButtons()}
+    <div className="movies">{renderMovies()}</div>
     </div>
   );
 }

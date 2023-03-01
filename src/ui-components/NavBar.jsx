@@ -36,6 +36,7 @@ export default function NavBar(props) {
         shrink="0"
         alignSelf="stretch"
         position="relative"
+        border="1px solid red"
         boxShadow="0px 0px 0px rgba(0, 0.13333334028720856, 0.4000000059604645, 1)"
         borderRadius="25px"
         padding="0px 0px 0px 0px"
