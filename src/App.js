@@ -69,15 +69,11 @@ function App({ user, signOut }) {
     <div className="App">
       <NavBar width={'100%'} overrides={navBarOverrides} />
       <ProfileCard display={profileCard ? 'flex' : 'none'} />
-      <div className="search">
       <input
         type="text"
         placeholder="Search movies"
-        value={searchMovies}
         onChange={(e) => setSearchMovies(e.target.value)}
       />
-      <button onClick={() => setSearchMovies('')}>Clear</button>
-      </div>
       <div className="movies">{renderMovies()}</div>
     </div>
   );
