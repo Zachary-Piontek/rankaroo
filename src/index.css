@@ -5,7 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(191, 191, 191);
+  /* get this image public/kangaroo.png */
+  background-image: url('../public/kangaroo.png');
+  background-color: black;
 }
 
 code {

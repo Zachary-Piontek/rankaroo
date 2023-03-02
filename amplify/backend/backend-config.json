@@ -56,32 +56,7 @@
       "service": "Cognito"
     }
   },
-  "function": {
-    "getMovieData": {
-      "build": true,
-      "dependsOn": [
-        {
-          "attributeEnvMap": {
-            "Arn": "TABLE_ARN",
-            "Name": "TABLE_NAME"
-          },
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "storage",
-          "resourceName": "dynamo05b05555"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
   "storage": {
-    "dynamo05b05555": {
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB"
-    },
     "s3rankaroomoviedata": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",

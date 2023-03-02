@@ -6,22 +6,27 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps, useAuth } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useAuth,
+  useAuthSignOutAction,
+} from "@aws-amplify/ui-react/internal";
 import { Button, Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
   const { overrides, ...rest } = props;
   const authAttributes = useAuth().user?.attributes ?? {};
+  const buttonOnClick = useAuthSignOutAction({ global: false });
   return (
     <Flex
-      gap="120px"
+      gap="169px"
       direction="row"
-      width="1272px"
+      width="883px"
       height="unset"
       justifyContent="space-between"
       alignItems="center"
       overflow="hidden"
       position="relative"
-      padding="22px 31px 22px 31px"
+      padding="22px 37px 22px 64px"
       backgroundColor="rgba(135,135,135,1)"
       {...getOverrideProps(overrides, "NavBar")}
       {...rest}
@@ -66,39 +71,17 @@ export default function NavBar(props) {
         ></Text>
       </Flex>
       <Flex
-        gap="40px"
+        gap="32px"
         direction="row"
-        width="286px"
-        height="78px"
-        justifyContent="space-between"
+        width="138px"
+        height="unset"
+        justifyContent="flex-end"
         alignItems="center"
         shrink="0"
         position="relative"
-        padding="5px 25px 5px 25px"
-        {...getOverrideProps(overrides, "Frame 32129767076")}
+        padding="0px 25px 0px 0px"
+        {...getOverrideProps(overrides, "Frame 321")}
       >
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.01px"
-          width="84px"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Categories"
-          {...getOverrideProps(overrides, "Categories")}
-        ></Text>
         <Text
           fontFamily="Inter"
           fontSize="16px"
@@ -121,41 +104,21 @@ export default function NavBar(props) {
           children="Profile"
           {...getOverrideProps(overrides, "Profile")}
         ></Text>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(0,0,0,1)"
-          lineHeight="24px"
-          textAlign="left"
+        <Image
+          width="45px"
+          height="46.02px"
           display="block"
-          direction="column"
-          justifyContent="unset"
-          letterSpacing="0.01px"
-          width="unset"
-          height="unset"
           gap="unset"
           alignItems="unset"
+          justifyContent="unset"
           shrink="0"
           position="relative"
+          borderRadius="160px"
           padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="About"
-          {...getOverrideProps(overrides, "About")}
-        ></Text>
-      </Flex>
-      <Flex
-        gap="32px"
-        direction="row"
-        width="292px"
-        height="unset"
-        justifyContent="flex-end"
-        alignItems="center"
-        shrink="0"
-        position="relative"
-        padding="0px 25px 0px 0px"
-        {...getOverrideProps(overrides, "Frame 32129767081")}
-      >
+          objectFit="cover"
+          src={authAttributes["profile"]}
+          {...getOverrideProps(overrides, "image")}
+        ></Image>
         <View
           width="24px"
           height="24px"
@@ -192,56 +155,28 @@ export default function NavBar(props) {
             {...getOverrideProps(overrides, "Vector")}
           ></Icon>
         </View>
-        <Flex
-          gap="20px"
+        <Text
+          fontFamily="Inter"
+          fontSize="16px"
+          fontWeight="400"
+          color="rgba(0,0,0,1)"
+          lineHeight="24px"
+          textAlign="left"
+          display="block"
           direction="column"
-          width="41px"
+          justifyContent="unset"
+          letterSpacing="0.01px"
+          width="unset"
           height="unset"
-          justifyContent="center"
-          alignItems="center"
+          gap="unset"
+          alignItems="unset"
           shrink="0"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "Frame 418")}
-        >
-          <Image
-            width="45px"
-            height="46.02px"
-            display="block"
-            gap="unset"
-            alignItems="unset"
-            justifyContent="unset"
-            shrink="0"
-            position="relative"
-            borderRadius="160px"
-            padding="0px 0px 0px 0px"
-            objectFit="cover"
-            src={authAttributes["profile"]}
-            {...getOverrideProps(overrides, "image")}
-          ></Image>
-          <Text
-            fontFamily="Inter"
-            fontSize="16px"
-            fontWeight="400"
-            color="rgba(0,0,0,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.01px"
-            width="unset"
-            height="unset"
-            gap="unset"
-            alignItems="unset"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children={authAttributes["name"]}
-            {...getOverrideProps(overrides, "User")}
-          ></Text>
-        </Flex>
+          whiteSpace="pre-wrap"
+          children={authAttributes["name"]}
+          {...getOverrideProps(overrides, "User")}
+        ></Text>
       </Flex>
       <Button
         width="111px"
@@ -253,6 +188,9 @@ export default function NavBar(props) {
         isDisabled={false}
         variation="primary"
         children="Signout"
+        onClick={() => {
+          buttonOnClick();
+        }}
         {...getOverrideProps(overrides, "Button")}
       ></Button>
     </Flex>

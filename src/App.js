@@ -14,26 +14,55 @@ function App({ user, signOut }) {
   const navBarOverrides = {
     NavBar: {
       backgroundColor: 'grey',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '130px',
+      padding: '0px',
+      maxHeight: '130px',
+      width: '100%',
+      border: '3px solid white',
+      flexWrap: 'wrap', // allow items to wrap to the next line
+      boxSizing: 'border-box', // include padding and border in width calculation
+      minWidth: '100%', // set a minimum width to prevent shrinking
     },
     Button: {
+      style: {
+        color: 'white',
+        backgroundColor: 'brown',
+        hover: {
+          backgroundColor: 'red',
+        },
       onClick: () => {
         signOut();
       },
     },
+  },
     image: {
       src: user?.attributes?.profile,
     },
     Profile: {
+      marginRight: '-25px',
+      style: {
+        cursor: 'pointer',
+        color: 'red',
+      },
       onClick: () => {
         showProfileCard(!profileCard);
       },
     },
     Rankaroo: {
       color: 'white',
-      border: '5px solid red',
+      border: '3px solid white',
       borderRadius: '5px',
       padding: '5px',
-      backgroundColor: 'blue',
+      backgroundColor: 'brown',
+    },
+    Logo: {
+      border: '3px solid white',
+      borderRadius: '10px',
+      padding: '5px',
+      backgroundColor: 'black',
     },
   };
 
@@ -77,7 +106,7 @@ function App({ user, signOut }) {
       <div className='sort-buttons'>
       <div>
         <button onClick={() => {setShowMovieList(true); setShowMovieGross(false);}}>Top 250</button>
-        <button onClick={() => {setShowMovieGross(true); setShowMovieList(false);}}>Movie Gross</button>
+        <button onClick={() => {setShowMovieGross(true); setShowMovieList(false);}}>All Time Movie Gross</button>
       </div>
       </div>
       {showMovieList && <MovieList movieData={movieData} />}

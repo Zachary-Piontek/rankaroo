@@ -12,15 +12,11 @@ export declare type NavBarOverridesProps = {
     NavBar?: PrimitiveOverrideProps<FlexProps>;
     Logo?: PrimitiveOverrideProps<FlexProps>;
     Rankaroo?: PrimitiveOverrideProps<TextProps>;
-    "Frame 32129767076"?: PrimitiveOverrideProps<FlexProps>;
-    Categories?: PrimitiveOverrideProps<TextProps>;
+    "Frame 321"?: PrimitiveOverrideProps<FlexProps>;
     Profile?: PrimitiveOverrideProps<TextProps>;
-    About?: PrimitiveOverrideProps<TextProps>;
-    "Frame 32129767081"?: PrimitiveOverrideProps<FlexProps>;
+    image?: PrimitiveOverrideProps<ImageProps>;
     Icon?: PrimitiveOverrideProps<ViewProps>;
     Vector?: PrimitiveOverrideProps<IconProps>;
-    "Frame 418"?: PrimitiveOverrideProps<FlexProps>;
-    image?: PrimitiveOverrideProps<ImageProps>;
     User?: PrimitiveOverrideProps<TextProps>;
     Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;

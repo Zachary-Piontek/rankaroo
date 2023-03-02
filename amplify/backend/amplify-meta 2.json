@@ -36,7 +36,7 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync",
-      "lastPushTimeStamp": "2023-03-01T20:09:37.114Z",
+      "lastPushTimeStamp": "2023-03-01T23:51:27.001Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-rankaroo-staging-165350-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apirankaroo"
@@ -85,7 +85,7 @@
         "IdentityPoolName": "testAuthIdentityPool__staging",
         "UserPoolName": "rankaroo"
       },
-      "lastPushTimeStamp": "2023-03-01T20:09:37.117Z",
+      "lastPushTimeStamp": "2023-03-01T23:51:27.004Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-rankaroo-staging-165350-deployment/amplify-cfn-templates/auth/rankaroo-cloudformation-template.json",
         "logicalId": "authrankaroo"
@@ -97,7 +97,7 @@
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
-      "lastPushTimeStamp": "2023-03-01T20:09:38.167Z",
+      "lastPushTimeStamp": "2023-03-01T23:51:27.969Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-rankaroo-staging-165350-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
         "logicalId": "storages3rankaroomoviedata"
