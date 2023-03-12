@@ -10,6 +10,7 @@ function App({ user, signOut }) {
   const [profileCard, showProfileCard] = useState(false);
   const [showMovieList, setShowMovieList] = useState(false);
   const [showMovieGross, setShowMovieGross] = useState(false);
+  const [showMovieVoteList, setShowMovieVoteList] = useState(false);
       
   const navBarOverrides = {
     NavBar: {
@@ -98,6 +99,35 @@ function App({ user, signOut }) {
       </div>
     );
   }
+
+  function MovieVoteList({ movieData }) {
+    const [votes, setVotes] = useState({});
+
+    const handleVote = (id, value) => {
+      setVotes({
+        ...votes,
+        [id]: value,
+      });
+    }
+
+    return (
+      <div className='movies'>
+      {movieData.map(movie => (
+        <div key={movie.id} className='movie'>
+          <h1>{movie.title}</h1>
+          <img src={movie.image} alt={movie.title} />
+          <h2>📅 {movie.year}</h2>
+          <h3>🎭 {movie.crew}</h3>
+          <div className='votes'>
+            <button onClick={() => handleVote(movie.id, 1)}>👍</button>
+            <div>{votes[movie.id] || 0}</div>
+            <button onClick={() => handleVote(movie.id, -1)}>👎</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+  }
   
   return (
     <div className="App">
@@ -107,10 +137,12 @@ function App({ user, signOut }) {
       <div>
         <button onClick={() => {setShowMovieList(true); setShowMovieGross(false);}}>Top 250</button>
         <button onClick={() => {setShowMovieGross(true); setShowMovieList(false);}}>All Time Movie Gross</button>
+        <button onClick={() => {setShowMovieVoteList(true); setShowMovieList(false); setShowMovieGross(false);}}>Rankaroo Votes</button>
       </div>
       </div>
       {showMovieList && <MovieList movieData={movieData} />}
       {showMovieGross && <MovieGross movieGross={movieGross} />}
+      {showMovieVoteList && <MovieVoteList movieData={movieData} />}
     </div>
   );
 }
