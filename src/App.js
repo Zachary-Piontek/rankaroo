@@ -10,7 +10,7 @@ function App({ user, signOut }) {
   const [profileCard, showProfileCard] = useState(false);
   const [showMovieList, setShowMovieList] = useState(false);
   const [showMovieGross, setShowMovieGross] = useState(false);
-  const [showMovieVoteList, setShowMovieVoteList] = useState(false);
+  const [showMovieVoteList, setShowMovieVoteList] = useState('0');
       
   const navBarOverrides = {
     NavBar: {
@@ -102,32 +102,54 @@ function App({ user, signOut }) {
 
   function MovieVoteList({ movieData }) {
     const [votes, setVotes] = useState({});
-
+    const [totalVotes, setTotalVotes] = useState({});
+  
     const handleVote = (id, value) => {
       setVotes({
         ...votes,
         [id]: value,
       });
-    }
-
+      handleTotalVotes(id, value);
+    };
+  
+    const handleTotalVotes = (id, value) => {
+      setTotalVotes({
+        ...totalVotes,
+        [id]: (totalVotes[id] || 0) + value,
+      });
+    };
+  
     return (
-      <div className='movies'>
-      {movieData.map(movie => (
-        <div key={movie.id} className='movie'>
-          <h1>{movie.title}</h1>
-          <img src={movie.image} alt={movie.title} />
-          <h2>📅 {movie.year}</h2>
-          <h3>🎭 {movie.crew}</h3>
-          <div className='votes'>
-            <button onClick={() => handleVote(movie.id, 1)}>👍</button>
-            <div>{votes[movie.id] || 0}</div>
-            <button onClick={() => handleVote(movie.id, -1)}>👎</button>
+      <div className="movies">
+        {movieData.map((movie) => (
+          <div key={movie.id} className="movie">
+            <h1>{movie.title}</h1>
+            <img src={movie.image} alt={movie.title} />
+            <h2>📅 {movie.year}</h2>
+            <h3>🎭 {movie.crew}</h3>
+            <div className="votes">
+              <button onClick={() => handleVote(movie.id, 1)}>👍</button>
+              <h3>{totalVotes[movie.id] || 0}</h3>
+              <button onClick={() => handleVote(movie.id, -1)}>👎</button>
+              <button
+                onClick={() =>
+                  alert(
+                    `Total Votes for ${movie.title}: ${
+                      totalVotes[movie.id] || 0
+                    }`
+                  )
+                }
+              >
+                Total Votes
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-  );
+        ))}
+      </div>
+    );
   }
+  
+  
   
   return (
     <div className="App">
